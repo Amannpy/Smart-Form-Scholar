@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Form Scholar</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Smart Form Scholar</h1>
+      <p class="subtitle">AI-Powered Form Assistant for College Students</p>
+    </header>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="profiles">Profiles</button>
+      <button class="tab-btn" data-tab="templates">Templates</button>
+      <button class="tab-btn" data-tab="settings">Settings</button>
+    </div>
+
+    <div class="tab-content" id="profiles-tab" style="display: block;">
+      <div class="profile-selector">
+        <select id="profile-select">
+          <option value="">Select a profile</option>
+          <!-- Profiles will be added dynamically -->
+        </select>
+        <button id="new-profile-btn" class="primary-btn">+ New</button>
+      </div>
+
+      <div id="profile-form" class="profile-form">
+        <div class="form-group">
+          <label for="profile-name">Profile Name</label>
+          <input type="text" id="profile-name" placeholder="e.g., Academic, Personal, Scholarship">
+        </div>
+
+        <h3>Personal Information</h3>
+        <div class="form-group">
+          <label for="first-name">First Name</label>
+          <input type="text" id="first-name">
+        </div>
+        <div class="form-group">
+          <label for="last-name">Last Name</label>
+          <input type="text" id="last-name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone">
+        </div>
+
+        <h3>Academic Information</h3>
+        <div class="form-group">
+          <label for="university">University/College</label>
+          <input type="text" id="university">
+        </div>
+        <div class="form-group">
+          <label for="student-id">Student ID</label>
+          <input type="text" id="student-id">
+        </div>
+        <div class="form-group">
+          <label for="major">Major/Program</label>
+          <input type="text" id="major">
+        </div>
+        <div class="form-group">
+          <label for="graduation-year">Expected Graduation Year</label>
+          <input type="number" id="graduation-year" min="2020" max="2030">
+        </div>
+        <div class="form-group">
+          <label for="gpa">GPA</label>
+          <input type="text" id="gpa" placeholder="e.g., 3.8">
+        </div>
+
+        <div class="buttons">
+          <button id="save-profile-btn" class="primary-btn">Save Profile</button>
+          <button id="delete-profile-btn" class="danger-btn">Delete</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="templates-tab">
+      <div class="template-section">
+        <h3>Available Templates</h3>
+        <div class="template-list">
+          <div class="template-item">
+            <div class="template-info">
+              <h4>Scholarship Application</h4>
+              <p>For common scholarship forms with fields for academic achievements and financial info</p>
+            </div>
+            <button class="secondary-btn apply-template-btn">Use</button>
+          </div>
+          <div class="template-item">
+            <div class="template-info">
+              <h4>Internship Application</h4>
+              <p>Contains fields for work experience, skills, and availability</p>
+            </div>
+            <button class="secondary-btn apply-template-btn">Use</button>
+          </div>
+          <div class="template-item">
+            <div class="template-info">
+              <h4>Course Registration</h4>
+              <p>Quick fill for course enrollment forms</p>
+            </div>
+            <button class="secondary-btn apply-template-btn">Use</button>
+          </div>
+          <div class="template-item">
+            <div class="template-info">
+              <h4>Research Participation</h4>
+              <p>For signing up as a research study participant</p>
+            </div>
+            <button class="secondary-btn apply-template-btn">Use</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="settings-tab">
+      <div class="settings-section">
+        <h3>General Settings</h3>
+        <div class="setting-item">
+          <label class="toggle-switch">
+            <input type="checkbox" id="auto-fill-toggle" checked>
+            <span class="toggle-slider"></span>
+          </label>
+          <div class="setting-info">
+            <h4>Auto-fill on page load</h4>
+            <p>Automatically fill forms when you visit them</p>
+          </div>
+        </div>
+        
+        <div class="setting-item">
+          <label class="toggle-switch">
+            <input type="checkbox" id="ai-assist-toggle" checked>
+            <span class="toggle-slider"></span>
+          </label>
+          <div class="setting-info">
+            <h4>AI Field Detection</h4>
+            <p>Use AI to better understand form fields</p>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <label class="toggle-switch">
+            <input type="checkbox" id="calendar-sync-toggle">
+            <span class="toggle-slider"></span>
+          </label>
+          <div class="setting-info">
+            <h4>Calendar Integration</h4>
+            <p>Add form deadlines to your calendar</p>
+          </div>
+        </div>
+
+        <h3>Data Management</h3>
+        <div class="setting-item">
+          <button id="export-data-btn" class="secondary-btn">Export All Data</button>
+          <div class="setting-info">
+            <h4>Export Data</h4>
+            <p>Download all your profiles and settings</p>
+          </div>
+        </div>
+        <div class="setting-item">
+          <button id="import-data-btn" class="secondary-btn">Import Data</button>
+          <div class="setting-info">
+            <h4>Import Data</h4>
+            <p>Restore from a backup file</p>
+          </div>
+        </div>
+        <div class="setting-item">
+          <button id="clear-data-btn" class="danger-btn">Clear All Data</button>
+          <div class="setting-info">
+            <h4>Clear Data</h4>
+            <p>Remove all saved profiles and settings</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <button id="fill-form-btn" class="primary-btn action-btn">Fill Current Form</button>
+      <div class="status" id="status-message"></div>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
